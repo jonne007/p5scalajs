@@ -3,9 +3,9 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.define.TaskModule
 
-val utestVersion = "0.7.10"
-val upickle = "1.4.2"
-val sv = "3.0.2"
+val utestVersion = "0.7.11"
+val upickle = "1.4.3"
+val sv = "3.1.1"
 
 trait Common extends ScalaModule {
   def scalaVersion = sv
@@ -33,6 +33,15 @@ object server extends Common {
       vuegui.npmRunBuild.apply()
       super.compile.apply()
     }
+  
+  object test extends Tests {
+    def testFramework = "utest.runner.Framework"
+
+    def ivyDeps =
+      Agg(
+        ivy"com.lihaoyi::utest:$utestVersion"
+      )
+  }
 }
 
 object vuegui extends Module with TaskModule {

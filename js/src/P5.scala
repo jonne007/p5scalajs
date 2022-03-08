@@ -13,6 +13,9 @@ trait Sketch extends js.Object {
   var QUARTER_PI: js.Any = js.native
   var TAU: js.Any = js.native
   var TWO_PI: js.Any = js.native
+  var mouseX: Double = js.native
+  var mouseY: Double = js.native
+  def translate(x: Double, y: Double): js.Any = js.native
   def ellipse(a: Double, b: Double, c: Double, d: Double): js.Any = js.native
   def line(x1: Double, y1: Double, x2: Double, y2: Double): js.Any = js.native
   def point(x: Double, y: Double): js.Any = js.native
@@ -20,10 +23,12 @@ trait Sketch extends js.Object {
   def textAlign(a: String, b: String): js.Any = js.native
   def textSize(size: Double): js.Any | Double = js.native
   def background(c: Double): js.Any = js.native
-  def createCanvas(w: Double, h: Double, renderer: String = ""): js.Dynamic =
+  def createCanvas(w: Double, h: Double, renderer: String = ""): P5Renderer =
     js.native
   def createVector(x: Double, y: Double): js.Dynamic =
     js.native
+  def noLoop(): js.Any = js.native
+  def circle(x: Double, y: Double, d: Double): js.Any = js.native
   def fill(
       v1: Double | js.Array[js.Any] | String,
       v2: Double = 1.0,
@@ -39,6 +44,16 @@ trait Sketch extends js.Object {
       y2: Double,
       x3: Double,
       y3: Double
+  ): js.Any = js.native
+  def rect(
+      x: Double,
+      y: Double,
+      w: Double,
+      h: Double,
+      tl: Double = 1.0,
+      tr: Double = 1.0,
+      br: Double = 1.0,
+      bl: Double = 1.0
   ): js.Any = js.native
   def frameRate(fps: Double = 1.0): Double = js.native
 }
@@ -57,3 +72,8 @@ object P5VectorExt {
     def negY() =
       new P5Vector(v.x, v.y * -1, v.z)
 }
+
+@js.native
+@JSGlobal("p5.Renderer")
+class P5Renderer extends js.Object:
+  def mousePressed(f: js.Function): P5Renderer = js.native

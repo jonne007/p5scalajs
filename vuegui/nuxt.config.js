@@ -20,8 +20,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      { hid: 'MainP5', src: '/js/scala/out.js', defer: true }
+    script: [{
+      src: "https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"
+    }, {
+      src: "/js/scala/out.js"
+    }
     ]
   },
 
@@ -30,7 +33,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['./plugins/p5.client.js'
+  plugins: [
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
