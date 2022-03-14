@@ -4,6 +4,8 @@
     <NuxtLink to="/01bounce">Bounce</NuxtLink> |
     <NuxtLink to="/02primespiral">PrimeSpiral</NuxtLink> |
     <NuxtLink to="/03minesweeper">Minesweeper</NuxtLink> |
+    <NuxtLink to="/04cube">Cube</NuxtLink> |
+    <NuxtLink to="/05mandelbrot">Mandelbrot</NuxtLink> |
     <NuxtLink to="/about">About</NuxtLink>
   </div>
 </template>
